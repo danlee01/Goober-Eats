@@ -9,6 +9,9 @@
 #ifndef ExpandableHashMap_h
 #define ExpandableHashMap_h
 
+#include <vector>
+#include <list>
+
 // ExpandableHashMap.h
 
 // Skeleton for the ExpandableHashMap class template.  You must implement the first six
@@ -20,7 +23,7 @@ class ExpandableHashMap
 public:
     ExpandableHashMap(double maximumLoadFactor = 0.5);
     ~ExpandableHashMap();
-    void reset();
+    void reset(); // resets the hashmap back to 8 buckets, deletes all items
     int size() const;
     void associate(const KeyType& key, const ValueType& value);
     
@@ -38,14 +41,33 @@ public:
     ExpandableHashMap& operator=(const ExpandableHashMap&) = delete;
     
 private:
+    std::vector<list<Node>*> myHash;
+    double maxLoadFactor;
+    
+    struct Node
+    {
+        typename KeyType;
+        typename ValueType;
+    }
 };
 
 ExpandableHashMap::ExpandableHashMap(double maximumLoadFactor)
+: myHash(8)
 {
+    this->maxLoadFactor = maximumLoadFactor;
 }
 
 ExpandableHashMap::~ExpandableHashMap()
 {
+    for (int i = 0; i < myHash.size(); i++)
+    {
+        std::list<ValueType>::iterator it = myHash[i]->begin();
+        for ( ; j < listSize; )
+        {
+            it = myHash[i]->erase(it);
+        }
+        delete myHash[i];
+    }
 }
 
 void ExpandableHashMap::reset()
@@ -54,11 +76,12 @@ void ExpandableHashMap::reset()
 
 int ExpandableHashMap::size() const
 {
-    return -999;  // Delete this line and implement this function correctly
+    return myHash.size();
 }
 
 void ExpandableHashMap::associate(const KeyType& key, const ValueType& value)
 {
+    
 }
 
 const ValueType* ExpandableHashMap::find(const KeyType& key) const

@@ -5,6 +5,71 @@
 	<key>logFormatVersion</key>
 	<integer>10</integer>
 	<key>logs</key>
-	<dict/>
+	<dict>
+		<key>767F297E-D30E-43BE-A58A-356159B2518F</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>767F297E-D30E-43BE-A58A-356159B2518F.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Goober-Eats project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Goober-Eats</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Goober-Eats</string>
+			<key>timeStartedRecording</key>
+			<real>605307561.86893904</real>
+			<key>timeStoppedRecording</key>
+			<real>605307564.10005701</real>
+			<key>title</key>
+			<string>Build Goober-Eats</string>
+			<key>uniqueIdentifier</key>
+			<string>767F297E-D30E-43BE-A58A-356159B2518F</string>
+		</dict>
+		<key>938B68DE-5ED7-43DD-AC6A-3FDCBE4E8281</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>938B68DE-5ED7-43DD-AC6A-3FDCBE4E8281.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Goober-Eats project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Goober-Eats</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Goober-Eats</string>
+			<key>timeStartedRecording</key>
+			<real>605312342.890028</real>
+			<key>timeStoppedRecording</key>
+			<real>605312343.61665797</real>
+			<key>title</key>
+			<string>Build Goober-Eats</string>
+			<key>uniqueIdentifier</key>
+			<string>938B68DE-5ED7-43DD-AC6A-3FDCBE4E8281</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

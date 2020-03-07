@@ -5,6 +5,71 @@
 	<key>logFormatVersion</key>
 	<integer>10</integer>
 	<key>logs</key>
-	<dict/>
+	<dict>
+		<key>60092BE6-ECE8-4560-97E9-F00808BE4A3D</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>60092BE6-ECE8-4560-97E9-F00808BE4A3D.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Goober-Eats project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Goober-Eats</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Goober-Eats</string>
+			<key>timeStartedRecording</key>
+			<real>605307564.07204103</real>
+			<key>timeStoppedRecording</key>
+			<real>605307574.83769798</real>
+			<key>title</key>
+			<string>Debug Goober-Eats</string>
+			<key>uniqueIdentifier</key>
+			<string>60092BE6-ECE8-4560-97E9-F00808BE4A3D</string>
+		</dict>
+		<key>A889D6E2-D858-4330-8D1C-9199EA1E597B</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A889D6E2-D858-4330-8D1C-9199EA1E597B.xcactivitylog</string>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Goober-Eats project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Goober-Eats</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug Goober-Eats</string>
+			<key>timeStartedRecording</key>
+			<real>605312343.502666</real>
+			<key>timeStoppedRecording</key>
+			<real>605312345.83244395</real>
+			<key>title</key>
+			<string>Debug Goober-Eats</string>
+			<key>uniqueIdentifier</key>
+			<string>A889D6E2-D858-4330-8D1C-9199EA1E597B</string>
+		</dict>
+	</dict>
 </dict>
 </plist>
