@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		FA1059BC2411839000BE571F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA1059BB2411839000BE571F /* main.cpp */; };
+		FA29E2E52414A0BB00F3A3CB /* DeliveryOptimizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA29E2E42414A0BB00F3A3CB /* DeliveryOptimizer.cpp */; };
+		FA29E2E72414A0C500F3A3CB /* DeliveryPlanner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA29E2E62414A0C500F3A3CB /* DeliveryPlanner.cpp */; };
+		FA29E2E92414A0CD00F3A3CB /* PointToPointRouter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA29E2E82414A0CD00F3A3CB /* PointToPointRouter.cpp */; };
+		FA29E2EC2414A0DD00F3A3CB /* StreetMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA29E2EB2414A0DD00F3A3CB /* StreetMap.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +30,11 @@
 		FA1059B82411839000BE571F /* Goober-Eats */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Goober-Eats"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA1059BB2411839000BE571F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		FA1059C2241183A500BE571F /* ExpandableHashMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExpandableHashMap.h; sourceTree = "<group>"; };
+		FA29E2E42414A0BB00F3A3CB /* DeliveryOptimizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DeliveryOptimizer.cpp; path = ../../../../Downloads/skeleton/DeliveryOptimizer.cpp; sourceTree = "<group>"; };
+		FA29E2E62414A0C500F3A3CB /* DeliveryPlanner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DeliveryPlanner.cpp; path = ../../../../Downloads/skeleton/DeliveryPlanner.cpp; sourceTree = "<group>"; };
+		FA29E2E82414A0CD00F3A3CB /* PointToPointRouter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PointToPointRouter.cpp; path = ../../../../Downloads/skeleton/PointToPointRouter.cpp; sourceTree = "<group>"; };
+		FA29E2EA2414A0D700F3A3CB /* provided.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = provided.h; path = ../../../../Downloads/skeleton/provided.h; sourceTree = "<group>"; };
+		FA29E2EB2414A0DD00F3A3CB /* StreetMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StreetMap.cpp; path = ../../../../Downloads/skeleton/StreetMap.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,11 @@
 		FA1059BA2411839000BE571F /* Goober-Eats */ = {
 			isa = PBXGroup;
 			children = (
+				FA29E2EB2414A0DD00F3A3CB /* StreetMap.cpp */,
+				FA29E2EA2414A0D700F3A3CB /* provided.h */,
+				FA29E2E82414A0CD00F3A3CB /* PointToPointRouter.cpp */,
+				FA29E2E62414A0C500F3A3CB /* DeliveryPlanner.cpp */,
+				FA29E2E42414A0BB00F3A3CB /* DeliveryOptimizer.cpp */,
 				FA1059BB2411839000BE571F /* main.cpp */,
 				FA1059C2241183A500BE571F /* ExpandableHashMap.h */,
 			);
@@ -121,6 +135,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1059BC2411839000BE571F /* main.cpp in Sources */,
+				FA29E2E72414A0C500F3A3CB /* DeliveryPlanner.cpp in Sources */,
+				FA29E2E52414A0BB00F3A3CB /* DeliveryOptimizer.cpp in Sources */,
+				FA29E2EC2414A0DD00F3A3CB /* StreetMap.cpp in Sources */,
+				FA29E2E92414A0CD00F3A3CB /* PointToPointRouter.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
