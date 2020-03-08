@@ -41,52 +41,147 @@ public:
     ExpandableHashMap& operator=(const ExpandableHashMap&) = delete;
     
 private:
-    std::vector<list<Node>*> myHash;
-    double maxLoadFactor;
-    
     struct Node
     {
-        typename KeyType;
-        typename ValueType;
-    }
+        KeyType key;
+        ValueType val;
+        
+        Node(KeyType key, ValueType value) : key(key), val(value) {}
+    };
+    
+    std::vector<std::list<Node>*> myHash;
+    double maxLoadFactor;
+    int nNodes;
+    
+    
+    void resize();
 };
 
-ExpandableHashMap::ExpandableHashMap(double maximumLoadFactor)
+template<typename KeyType, typename ValueType>
+ExpandableHashMap<KeyType, ValueType>::ExpandableHashMap(double maximumLoadFactor)
 : myHash(8)
 {
     this->maxLoadFactor = maximumLoadFactor;
+    this->nNodes = 0;
 }
 
-ExpandableHashMap::~ExpandableHashMap()
+template<typename KeyType, typename ValueType>
+ExpandableHashMap<KeyType, ValueType>::~ExpandableHashMap()
 {
+    // Our list will not be using dynamically-allocated Nodes,
+    // so all we need to delete are our lists
     for (int i = 0; i < myHash.size(); i++)
     {
-        std::list<ValueType>::iterator it = myHash[i]->begin();
-        for ( ; j < listSize; )
-        {
-            it = myHash[i]->erase(it);
-        }
         delete myHash[i];
     }
 }
 
-void ExpandableHashMap::reset()
+template<typename KeyType, typename ValueType>
+void ExpandableHashMap<KeyType, ValueType>::reset()
 {
+    int nBuckets = myHash.size();
+    
+    for (int i = 0; i < nBuckets; i++)
+    {
+        delete myHash[i];
+        myHash[i] = nullptr;
+    }
+    
+    myHash.resize(8);
+    
+    
 }
 
-int ExpandableHashMap::size() const
+template<typename KeyType, typename ValueType>
+int ExpandableHashMap<KeyType, ValueType>::size() const
 {
     return myHash.size();
 }
 
-void ExpandableHashMap::associate(const KeyType& key, const ValueType& value)
+template<typename KeyType, typename ValueType>
+void ExpandableHashMap<KeyType, ValueType>::associate(const KeyType& key, const ValueType& value)
 {
+    
+    // Calculate bucket number
+    
+    unsigned int index = hasher(key) % myHash.size();
+    
+    // Check to see if bucket is initialized
+    // (i.e. Make sure we are not accessing a nullptr)
+    
+    if (myHash[index] == nullptr)
+        myHash[index] = new std::list<Node>;
+
+    // If key in bucket, replace ValueType
+    
+    typename std::list<Node>::iterator it = myHash[index]->begin();
+    while (it != myHash[index].end())
+    {
+        if (it->key == key)
+        {
+            it->val = value;
+            nNodes++;
+            return;
+        }
+    }
+    
+    // If key not already in bucket, insert into bucket.
+    // If adding this Node will go over our MaxLoadFactor, resize.
+    if (maxLoadFactor < (nNodes+1) / myHash.size())
+    {
+        resize();
+        index = hash(key) % myHash.size();
+    }
+    
+    nNodes++;
+    myHash[index]->push_back(Node(key, value));
     
 }
 
-const ValueType* ExpandableHashMap::find(const KeyType& key) const
+template<typename KeyType, typename ValueType>
+const ValueType* ExpandableHashMap<KeyType, ValueType>::find(const KeyType& key) const
 {
-    return nullptr;  // Delete this line and implement this function correctly
+    unsigned int index = hash(key) % myHash.size();
+    
+    typename std::list<ValueType>::iterator it = myHash[index]->begin();
+    while (it != myHash[index].end())
+    {
+        if (it->key == key)
+        {
+            return &(*it);
+        }
+    }
+    
+    return nullptr;
+}
+
+template<typename KeyType, typename ValueType>
+void ExpandableHashMap<KeyType, ValueType>::resize()
+{
+    int nBuckets = myHash.size();
+    
+    std::vector<std::list<Node>*> newHash(2*nBuckets);
+    
+    typename std::list<Node>::iterator it;
+    
+    for (int i = 0; i < nBuckets; i++)
+    {
+        it = myHash[i]->begin();
+        while (it != myHash[i]->end())
+        {
+            int index = hasher(it->key) % (2*nBuckets);
+            
+            if (newHash[index] == nullptr)
+                newHash[index] = new std::list<Node>;
+            newHash[index]->push_back(Node(it->key, it->val));
+        }
+    }
+    
+    // Delete old hash table (free the memory)
+    reset();
+    
+    myHash = newHash;
+    
 }
 
 
