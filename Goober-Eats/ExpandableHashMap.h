@@ -14,8 +14,6 @@
 
 // ExpandableHashMap.h
 
-// Skeleton for the ExpandableHashMap class template.  You must implement the first six
-// member functions.
 
 template<typename KeyType, typename ValueType>
 class ExpandableHashMap
@@ -53,8 +51,7 @@ private:
     double maxLoadFactor;
     int nNodes;
     
-    
-    void resize();
+    void expand();
 };
 
 template<typename KeyType, typename ValueType>
@@ -86,7 +83,6 @@ void ExpandableHashMap<KeyType, ValueType>::reset()
         delete myHash[i];
         myHash[i] = nullptr;
     }
-    
     myHash.resize(8);
     
     
@@ -103,7 +99,7 @@ void ExpandableHashMap<KeyType, ValueType>::associate(const KeyType& key, const 
 {
     
     // Calculate bucket number
-    
+    unsigned int hasher(const KeyType& k);
     unsigned int index = hasher(key) % myHash.size();
     
     // Check to see if bucket is initialized
@@ -111,11 +107,12 @@ void ExpandableHashMap<KeyType, ValueType>::associate(const KeyType& key, const 
     
     if (myHash[index] == nullptr)
         myHash[index] = new std::list<Node>;
-
+    
     // If key in bucket, replace ValueType
     
-    typename std::list<Node>::iterator it = myHash[index]->begin();
-    while (it != myHash[index].end())
+    //typename std::list<Node>::iterator it = myHash[index]->begin();
+    //while (it != myHash[index]->end())
+    for (auto it = myHash[index]->begin(); it != myHash[index]->end(); it++)
     {
         if (it->key == key)
         {
@@ -126,14 +123,18 @@ void ExpandableHashMap<KeyType, ValueType>::associate(const KeyType& key, const 
     }
     
     // If key not already in bucket, insert into bucket.
-    // If adding this Node will go over our MaxLoadFactor, resize.
+    // If adding this Node will go over our MaxLoadFactor, expand.
     if (maxLoadFactor < (nNodes+1) / myHash.size())
     {
-        resize();
-        index = hash(key) % myHash.size();
+        expand();
+        unsigned int hasher(const KeyType& k);
+        index = hasher(key) % myHash.size();
     }
     
     nNodes++;
+    if (myHash[index] == nullptr)
+        myHash[index] = new std::list<Node>;
+    
     myHash[index]->push_back(Node(key, value));
     
 }
@@ -141,14 +142,17 @@ void ExpandableHashMap<KeyType, ValueType>::associate(const KeyType& key, const 
 template<typename KeyType, typename ValueType>
 const ValueType* ExpandableHashMap<KeyType, ValueType>::find(const KeyType& key) const
 {
-    unsigned int index = hash(key) % myHash.size();
+    unsigned int hasher(const KeyType& k);
+    unsigned int index = hasher(key) % myHash.size();
     
-    typename std::list<ValueType>::iterator it = myHash[index]->begin();
-    while (it != myHash[index].end())
+    if (myHash[index] == nullptr) return nullptr;
+    
+    //typename std::list<ValueType>::iterator it = myHash[index]->begin();
+    for (auto p = myHash[index]->begin(); p != myHash[index]->end(); p++)
     {
-        if (it->key == key)
+        if (p->key == key)
         {
-            return &(*it);
+            return &(p->val);
         }
     }
     
@@ -156,30 +160,31 @@ const ValueType* ExpandableHashMap<KeyType, ValueType>::find(const KeyType& key)
 }
 
 template<typename KeyType, typename ValueType>
-void ExpandableHashMap<KeyType, ValueType>::resize()
+void ExpandableHashMap<KeyType, ValueType>::expand()
 {
     int nBuckets = myHash.size();
     
     std::vector<std::list<Node>*> newHash(2*nBuckets);
     
-    typename std::list<Node>::iterator it;
-    
     for (int i = 0; i < nBuckets; i++)
     {
-        it = myHash[i]->begin();
-        while (it != myHash[i]->end())
+        if (myHash[i] == nullptr) continue;
+        
+        for (auto p : *myHash[i])
         {
-            int index = hasher(it->key) % (2*nBuckets);
+            unsigned int hasher(const KeyType& k);
+            int index = hasher(p.key) % (2*nBuckets);
             
             if (newHash[index] == nullptr)
                 newHash[index] = new std::list<Node>;
-            newHash[index]->push_back(Node(it->key, it->val));
+            
+            newHash[index]->push_back(Node(p.key, p.val));
+            
         }
     }
-    
     // Delete old hash table (free the memory)
     reset();
-    
+
     myHash = newHash;
     
 }
@@ -187,3 +192,8 @@ void ExpandableHashMap<KeyType, ValueType>::resize()
 
 
 #endif /* ExpandableHashMap_h */
+
+
+
+
+
