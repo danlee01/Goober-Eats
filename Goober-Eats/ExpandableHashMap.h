@@ -1,6 +1,5 @@
 //
 //  ExpandableHashMap.h
-//  Goober-Eats
 //
 //  Created by Dan Lee on 3/5/20.
 //  Copyright © 2020 Dan Lee. All rights reserved.
@@ -13,7 +12,6 @@
 #include <list>
 
 // ExpandableHashMap.h
-
 
 template<typename KeyType, typename ValueType>
 class ExpandableHashMap
@@ -110,8 +108,6 @@ void ExpandableHashMap<KeyType, ValueType>::associate(const KeyType& key, const 
     
     // If key in bucket, replace ValueType
     
-    //typename std::list<Node>::iterator it = myHash[index]->begin();
-    //while (it != myHash[index]->end())
     for (auto it = myHash[index]->begin(); it != myHash[index]->end(); it++)
     {
         if (it->key == key)
@@ -189,11 +185,4 @@ void ExpandableHashMap<KeyType, ValueType>::expand()
     
 }
 
-
-
 #endif /* ExpandableHashMap_h */
-
-
-
-
-
